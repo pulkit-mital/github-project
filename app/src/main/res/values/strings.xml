@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GithubApplication</string>
+    <string name="author_title">Author</string>
+    <string name="sf_author">%1$s: %2$s</string>
+    <string name="publish_title">Published At</string>
+    <string name="txt_title">Title</string>
+    <string name="txt_description">Description</string>
+    <string name="txt_author">Author</string>
+    <string name="txt_created_at">Created At</string>
+    <string name="txt_closed_at">Closed At</string>
+</resources>

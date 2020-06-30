@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="githubPullRequestRecyclerAdapter"
+            type="com.pulkit.githubapplication.adapters.GithubPullRequestRecyclerAdapter" />
+
+        <variable
+            name="githubViewModel"
+            type="com.pulkit.githubapplication.viewmodel.GithubViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/layout_tool_bar"
+                layout="@layout/layout_tool_bar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/news_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:items="@{githubViewModel.githubPullRequests}"
+                app:adapter="@{githubPullRequestRecyclerAdapter}"
+                app:updateItem = "@{githubViewModel.updateRequest}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility='@{githubViewModel.isProgressVisible, default="gone"}' />
+    </RelativeLayout>
+
+</layout>
